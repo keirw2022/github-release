@@ -1,0 +1,16 @@
+name: 'GitHub Release'
+description: 'Increments the latest release version and creates a new release.'
+author: 'Keir Whitlock'
+branding:
+  icon: 'terminal'
+  color: 'yellow'
+inputs:
+  git_branchtag:
+    description: 'The Git branch, tag or sha to create the release from. (Defaults to repo master/main branch)'
+    required: false
+outputs:
+  status_code:
+    description: 'Returned status code.'
+runs:
+  using: 'docker'
+  image: './Dockerfile'
