@@ -7,7 +7,7 @@ import json
 
 try:
     r = requests.get(f"{os.environ['GITHUB_API_URL']}/repos/{os.environ['GITHUB_REPOSITORY']}/releases/latest",
-                       auth=('username', os.environ['GITHUB_API']))
+                       auth=('username', os.environ['INPUT_GITHUB_API_TOKEN']))
 except Exception as e:
     print(f"Get Latest Release; Problem accessing Github API: {e}")
 

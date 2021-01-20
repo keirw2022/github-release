@@ -8,6 +8,9 @@ inputs:
   git_branchtag:
     description: 'The Git branch, tag or sha to create the release from. (Defaults to repo master/main branch)'
     required: false
+  github_api_token:
+    description: 'The API token used to hit GitHub API with.'
+    required: true
 outputs:
   status_code:
     description: 'Returned status code.'
