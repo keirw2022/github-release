@@ -35,7 +35,7 @@ if tag:
             release_payload = {"tag_name": tag, "target_commitish": os.environ["INPUT_GIT_BRANCHTAG"]}
 
         r = requests.post(f"{os.environ['GITHUB_API_URL']}/repos/{os.environ['GITHUB_REPOSITORY']}/releases",
-                        auth=('username', os.environ['GITHUB_API']),
+                        auth=('username', os.environ['INPUT_GITHUB_API_TOKEN']),
                         data = json.dumps(release_payload))
     except Exception as e:
         print(f"Create Release; Problem accessing Github API: {e}")
