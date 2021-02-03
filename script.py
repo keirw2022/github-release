@@ -4,10 +4,14 @@ import requests
 import os
 import json
 
+class CustomError(Exception):
+    pass
 
 try:
     r = requests.get(f"{os.environ['GITHUB_API_URL']}/repos/{os.environ['GITHUB_REPOSITORY']}/releases/latest",
                        auth=('username', os.environ['INPUT_GITHUB_API_TOKEN']))
+    if not r.ok:
+        raise CustomError(r.text)
 except Exception as e:
     print(f"Get Latest Release; Problem accessing Github API: {e}")
 
